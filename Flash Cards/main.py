@@ -24,8 +24,11 @@ def got_wrong():
         words_to_learn["English"].append(french_word["English"])
     move_to_next_card()
 def got_right():
+    global french_words_dict
     if len(french_words_dict) > 1:
         french_words_dict.remove(french_word)
+    else:
+        french_words_dict = pandas.read_csv("data/french_words.csv")
     move_to_next_card()
 def move_to_next_card():
     global french_word
